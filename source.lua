@@ -2553,7 +2553,7 @@ function Luna:CreateWindow(WindowSettings)
 			if v == identifyexecutor() then
 				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Supports This Script."
 			else
-				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Isn't Officialy Supported By This Script."
+				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Isn't Officially Supported By This Script."
 			end
 		end
 
