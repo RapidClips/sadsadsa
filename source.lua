@@ -23,7 +23,7 @@ Deity/dp4pv/x64x70 | Certain Scripting and Testing ig
 
 ]]
 
-local Release = "DarkHub"
+local Release = "Prerelease Beta 6.1"
 
 local Luna = { Folder = "Luna", Options = {}, ThemeGradient = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(117, 164, 206)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(123, 201, 201)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(224, 138, 175))} }
 
@@ -1650,7 +1650,7 @@ local function BlurModule(Frame)
 	frame.Size = UDim2.new(0.95, 0, 0.95, 0)
 	frame.Position = UDim2.new(0.5, 0, 0.5, 0)
 	frame.AnchorPoint = Vector2.new(0.5, 0.5)
-	frame.BackgroundTransparency = 0
+	frame.BackgroundTransparency = 1
 
 	local GenUid; do -- Generate unique names for RenderStepped bindings
 		local id = 0
@@ -1847,28 +1847,28 @@ local function Hide(Window, bind, notif)
 	if notif then
 		Luna:Notification({Title = "Interface Hidden", Content = "The interface has been hidden, you may reopen the interface by Pressing the UI Bind In Settings ("..tostring(bind)..")", Icon = "visibility_off"})
 	end
-	tween(Window, {BackgroundTransparency =0})
-	tween(Window.Elements, {BackgroundTransparency = 0})
-	tween(Window.Line, {BackgroundTransparency = 0})
-	tween(Window.Title.Title, {TextTransparency = 0})
-	tween(Window.Title.subtitle, {TextTransparency = 0})
-	tween(Window.Logo, {ImageTransparency = 0})
-	tween(Window.Navigation.Line, {BackgroundTransparency = 0})
+	tween(Window, {BackgroundTransparency = 1})
+	tween(Window.Elements, {BackgroundTransparency = 1})
+	tween(Window.Line, {BackgroundTransparency = 1})
+	tween(Window.Title.Title, {TextTransparency = 1})
+	tween(Window.Title.subtitle, {TextTransparency = 1})
+	tween(Window.Logo, {ImageTransparency = 1})
+	tween(Window.Navigation.Line, {BackgroundTransparency = 1})
 
 	for _, TopbarButton in ipairs(Window.Controls:GetChildren()) do
 		if TopbarButton.ClassName == "Frame" then
-			tween(TopbarButton, {BackgroundTransparency = 0})
-			tween(TopbarButton.UIStroke, {Transparency = 0})
-			tween(TopbarButton.ImageLabel, {ImageTransparency = 0})
+			tween(TopbarButton, {BackgroundTransparency = 1})
+			tween(TopbarButton.UIStroke, {Transparency = 1})
+			tween(TopbarButton.ImageLabel, {ImageTransparency = 1})
 			TopbarButton.Visible = false
 		end
 	end
 	for _, tabbtn in ipairs(Window.Navigation.Tabs:GetChildren()) do
 		if tabbtn.ClassName == "Frame" and tabbtn.Name ~= "InActive Template" then
-			TweenService:Create(tabbtn, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-			TweenService:Create(tabbtn.ImageLabel, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
-			TweenService:Create(tabbtn.DropShadowHolder.DropShadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
-			TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0}):Play()
+			TweenService:Create(tabbtn, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
+			TweenService:Create(tabbtn.ImageLabel, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
+			TweenService:Create(tabbtn.DropShadowHolder.DropShadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
+			TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 		end
 	end
 
@@ -2188,7 +2188,7 @@ local function Unhide(Window, currentTab)
 				TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.41}):Play()
 			end
 			TweenService:Create(tabbtn.ImageLabel, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
-			TweenService:Create(tabbtn.DropShadowHolder.DropShadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
+			TweenService:Create(tabbtn.DropShadowHolder.DropShadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
 		end
 	end
 
@@ -2264,16 +2264,16 @@ function Luna:CreateWindow(WindowSettings)
 	Main.Title.subtitle.Text = WindowSettings.Subtitle
 	Main.Logo.Image = "rbxassetid://" .. WindowSettings.LogoID
 	Main.Visible = true
-	Main.BackgroundTransparency = 0
+	Main.BackgroundTransparency = 1
 	Main.Size = MainSize
 	Main.Size = UDim2.fromOffset(Main.Size.X.Offset - 70, Main.Size.Y.Offset - 55)
 	Main.Parent.ShadowHolder.Size = Main.Size
-	LoadingFrame.Frame.Frame.Title.TextTransparency = 0
-	LoadingFrame.Frame.Frame.Subtitle.TextTransparency = 0
-	LoadingFrame.Version.TextTransparency = 0
-	LoadingFrame.Frame.ImageLabel.ImageTransparency = 0
+	LoadingFrame.Frame.Frame.Title.TextTransparency = 1
+	LoadingFrame.Frame.Frame.Subtitle.TextTransparency = 1
+	LoadingFrame.Version.TextTransparency = 1
+	LoadingFrame.Frame.ImageLabel.ImageTransparency = 1
 
-	tween(Elements.Parent, {BackgroundTransparency = 0})
+	tween(Elements.Parent, {BackgroundTransparency = 1})
 	Elements.Parent.Visible = false
 
 	LoadingFrame.Frame.Frame.Title.Text = WindowSettings.LoadingTitle
@@ -2406,20 +2406,20 @@ function Luna:CreateWindow(WindowSettings)
 					for _, instance in pairs(KeySystem:GetDescendants()) do
 						if instance.ClassName ~= "UICorner" and instance.ClassName ~= "UIPadding" then
 							if instance.ClassName ~= "UIStroke" then
-								tween(instance, {BackgroundTransparency = 0}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
+								tween(instance, {BackgroundTransparency = 1}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
 							end
 							if instance.ClassName == "ImageButton" then
-								tween(instance, {ImageTransparency = 0}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
+								tween(instance, {ImageTransparency = 1}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
 							end
 							if instance.ClassName == "TextLabel" then
-								tween(instance, {TextTransparency = 0}, nil,TweenInfo.new(0.4, Enum.EasingStyle.Exponential))
+								tween(instance, {TextTransparency = 1}, nil,TweenInfo.new(0.4, Enum.EasingStyle.Exponential))
 							end
 							if instance.ClassName == "UIStroke" then
-								tween(instance, {Transparency = 0}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
+								tween(instance, {Transparency = 1}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
 							end
 						end
 					end
-					tween(KeySystem, {BackgroundTransparency = 0}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
+					tween(KeySystem, {BackgroundTransparency = 1}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
 					task.wait(0.51)
 					Passthrough = true
 					KeySystem.Visible = false
