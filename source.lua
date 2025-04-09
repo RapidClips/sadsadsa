@@ -2264,16 +2264,16 @@ function Luna:CreateWindow(WindowSettings)
 	Main.Title.subtitle.Text = WindowSettings.Subtitle
 	Main.Logo.Image = "rbxassetid://" .. WindowSettings.LogoID
 	Main.Visible = true
-	Main.BackgroundTransparency = 1
+	Main.BackgroundTransparency = 0
 	Main.Size = MainSize
 	Main.Size = UDim2.fromOffset(Main.Size.X.Offset - 70, Main.Size.Y.Offset - 55)
 	Main.Parent.ShadowHolder.Size = Main.Size
-	LoadingFrame.Frame.Frame.Title.TextTransparency = 1
-	LoadingFrame.Frame.Frame.Subtitle.TextTransparency = 1
-	LoadingFrame.Version.TextTransparency = 1
-	LoadingFrame.Frame.ImageLabel.ImageTransparency = 1
+	LoadingFrame.Frame.Frame.Title.TextTransparency = 0
+	LoadingFrame.Frame.Frame.Subtitle.TextTransparency = 0
+	LoadingFrame.Version.TextTransparency = 0
+	LoadingFrame.Frame.ImageLabel.ImageTransparency = 0
 
-	tween(Elements.Parent, {BackgroundTransparency = 1})
+	tween(Elements.Parent, {BackgroundTransparency = 0})
 	Elements.Parent.Visible = false
 
 	LoadingFrame.Frame.Frame.Title.Text = WindowSettings.LoadingTitle
